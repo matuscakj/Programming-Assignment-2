@@ -29,7 +29,7 @@ void BooleanEval(string input) {
 	for (int i = 0; i < inLength; i++) {
 		char temp;
 		temp = input.at(i);
-		if (temp != '*' || '+' || ' ' || '=' || '0' || '1' || '(' || ')') {
+		if ((temp != '*') && (temp != '+') && (temp != ' ') && (temp != '=') && (temp != '0') && (temp != '1') && (temp != '(') && (temp != ')')) {
 			valid = false;
 		}
 		if (temp == '=') {

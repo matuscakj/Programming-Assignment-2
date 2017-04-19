@@ -31,10 +31,11 @@ void SetsEval(string input) {
 	for (int i = 0; i < inLength; i++) {
 		char temp;
 		temp = input.at(i);
-		if (temp != '*' || '+' || ' ' || '=' || '0' || '1' || '2' || '3' || '4' || '5' ||
-					'6' || '7' || '8' || '9' || 'a' || 'b' || 'c' || 'd' || 'e' || 'f' ||
-					'g' || 'h' || 'i' || 'j' || 'k' || 'l' || 'm' || 'n' || 'o' || 'p' ||
-					'q' || 'r' || 's' || 't' || 'u' || 'v' || 'w' || 'x' || 'y' || 'z') {
+		if ((temp != '*') && (temp != '+') && (temp != ' ') && (temp != '=') && (temp != '0') && (temp != '1') && (temp != '2') && (temp != '3') && (temp != '4') && (temp != '5') &&
+			(temp != '6') && (temp != '7') && (temp != '8') && (temp != '9') && (temp != 'a') && (temp != 'b') && (temp != 'c') && (temp != 'd') && (temp != 'e') && (temp != 'f') &&
+			(temp != 'g') && (temp != 'h') && (temp != 'i') && (temp != 'j') && (temp != 'k') && (temp != 'l') && (temp != 'm') && (temp != 'n') && (temp != 'o') && (temp != 'p') &&
+			(temp != 'q') && (temp != 'r') && (temp != 's') && (temp != 't') && (temp != 'u') && (temp != 'v') && (temp != 'w') && (temp != 'x') && (temp != 'y') && (temp != 'z') &&
+			(temp != '(') && (temp != ')') && (temp != '{') && (temp != '}') && (temp != ',')) {
 			valid = false;
 		}
 		if (temp == '=') {

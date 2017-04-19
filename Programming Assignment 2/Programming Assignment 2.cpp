@@ -38,7 +38,7 @@ int main()
 	file.open(fileName.c_str());
 
 	while (getline(file, line)) {
-		trim(line) = trimmedLine;
+		trimmedLine = trim(line);
 		if (trimmedLine == "<strings>") {
 			syntax.push("strings");
 		}else if (trimmedLine == "<algebra>") {

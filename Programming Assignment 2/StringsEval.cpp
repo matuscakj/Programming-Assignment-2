@@ -29,8 +29,9 @@ void StringsEval(string input) {
 	for (int i = 0; i < inLength; i++) {
 		char temp;
 		temp = (char) input.at(i);
-			if (temp != '*' || '+' || ' ' || '=' || '0' || '1' || '2' ||
-						'3' || '4' || '5' || '6' || '7' || '8' || '9') {
+			if ((temp != '*') && (temp != '+') && (temp != ' ') && (temp != '=') && (temp != '0') && (temp != '1') && (temp != '2') &&
+				(temp != '3') && (temp != '4') && (temp != '5') && (temp != '6') && (temp != '7') && (temp != '8') && (temp != '9') &&
+				(temp != '(') && (temp != ')')) {
 				valid = false;
 			}
 			if (temp == '=') {
