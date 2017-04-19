@@ -14,8 +14,9 @@ void BooleanEval(string input) {
 	bool equal = false;
 
 	inLength = input.length();
+	rewind;
 
-	for (int i = 0; i <= inLength; i++) {
+	for (int i = 0; i < inLength; i++) {
 		char temp;
 		temp = input.at(i);
 		if (temp != '*' || '+' || ' ' || '=' || '0' || '1' || '(' || ')') {

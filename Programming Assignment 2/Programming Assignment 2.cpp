@@ -28,20 +28,20 @@ int main()
 	file.open(fileName.c_str());
 
 	while (getline(file, line)) {
-		if (line.find("<strings>")) {
+		if (line == "<strings>") {
 			syntax.push("strings");
-		}else if (line.find("<algebra>")) {
+		}else if (line == "<algebra>") {
 			syntax.push("algebra");
-		}else if (line.find("<sets>")) {
+		}else if (line == "<sets>") {
 			syntax.push("sets");
-		}else if (line.find("<boolean>")) {
+		}else if (line == "<boolean>") {
 			syntax.push("boolean");
-		}else if (line.find("</>")) {
+		}else if (line == "</>") {
 			syntax.pop();
 		}else if (line.at(0) == '<') {
 			cout << "The binding expression: '" << line << "' is invalid." << endl;
 		}else {
-			if (syntax.top() == "string") {
+			if (syntax.top() == "strings") {
 				StringsEval(line);
 			}else if (syntax.top() == "algebra") {
 				AlgebraEval(line);
@@ -51,7 +51,7 @@ int main()
 				BooleanEval(line);
 			}
 		}
-		return 0;
 	}
+	return 0;
 }
 

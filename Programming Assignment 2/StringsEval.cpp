@@ -14,10 +14,11 @@ void StringsEval(string input) {
 	bool equal = false;
 
 	inLength = input.length();
+	rewind;
 
-	for (int i = 0; i <= inLength; i++) {
+	for (int i = 0; i < inLength; i++) {
 		char temp;
-		temp = input.at(i);
+		temp = (char) input.at(i);
 			if (temp != '*' || '+' || ' ' || '=' || '0' || '1' || '2' ||
 						'3' || '4' || '5' || '6' || '7' || '8' || '9') {
 				valid = false;
