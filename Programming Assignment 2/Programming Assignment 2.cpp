@@ -5,6 +5,7 @@
 #include "AlgebraEval.h"
 #include "BooleanEval.h"
 #include "SetsEval.h"
+#include <conio.h>
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -31,6 +32,7 @@ int main()
 	string line;
 	string trimmedLine;
 	stack<string> syntax;
+	char input;
 
 
 	cout << " Enter a filename for expressions to be evaluated: ";
@@ -62,6 +64,11 @@ int main()
 				BooleanEval(trimmedLine);
 			}
 		}
+	}
+	cout << "Press 'q' to quit:";
+	cin >> input;
+	if (input = 'q') {
+		exit;
 	}
 	return 0;
 }
