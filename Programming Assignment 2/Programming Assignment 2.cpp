@@ -14,41 +14,52 @@ using namespace std;
 
 void StringsEval(string);
 
+string trim(const string& str) {
+	size_t first = str.find_first_not_of(' ');
+	if (string::npos == first)
+	{
+		return str;
+	}
+	size_t last = str.find_last_not_of(' ');
+	return str.substr(first, (last - first + 1));
+}
+
 int main()
 {
 	ifstream file;
 	string fileName;
 	string line;
-	bool isValid;
+	string trimmedLine;
 	stack<string> syntax;
 
 
-	cout << " Enter a filename for expressions to be evaluated: " << endl;
+	cout << " Enter a filename for expressions to be evaluated: ";
 	getline(cin, fileName);
 	file.open(fileName.c_str());
 
 	while (getline(file, line)) {
-		if (line == "<strings>") {
+		trim(line) = trimmedLine;
+		if (trimmedLine == "<strings>") {
 			syntax.push("strings");
-		}else if (line == "<algebra>") {
+		}else if (trimmedLine == "<algebra>") {
 			syntax.push("algebra");
-		}else if (line == "<sets>") {
+		}else if (trimmedLine == "<sets>") {
 			syntax.push("sets");
-		}else if (line == "<boolean>") {
+		}else if (trimmedLine == "<boolean>") {
 			syntax.push("boolean");
-		}else if (line == "</>") {
+		}else if (trimmedLine == "</>") {
 			syntax.pop();
-		}else if (line.at(0) == '<') {
-			cout << "The binding expression: '" << line << "' is invalid." << endl;
+		}else if (trimmedLine.at(0) == '<') {
+			cout << "The binding expression: '" << trimmedLine << "' is invalid." << endl;
 		}else {
 			if (syntax.top() == "strings") {
-				StringsEval(line);
+				StringsEval(trimmedLine);
 			}else if (syntax.top() == "algebra") {
-				AlgebraEval(line);
+				AlgebraEval(trimmedLine);
 			}else if (syntax.top() == "sets") {
-				SetsEval(line);
+				SetsEval(trimmedLine);
 			}else if (syntax.top() == "boolean") {
-				BooleanEval(line);
+				BooleanEval(trimmedLine);
 			}
 		}
 	}
