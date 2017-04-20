@@ -38,7 +38,10 @@ void SetsEval(string input) {
 			(temp != '(') && (temp != ')') && (temp != '{') && (temp != '}') && (temp != ',')) {
 			valid = false;
 		}
-		if ((i >= 3) && ((temp == '+') || (temp == '*') || (temp == '-') || (temp == '^') || (temp == '=')) &&
+		if ((input.at(0) == '*') || (input.at(0) == '+') || (input.at(0) == '-') || (input.at(0) == '^') || (input.at(0) == '=')) {
+			valid = false;
+		}
+		if ((i >= 2) && ((temp == '+') || (temp == '*') || (temp == '-') || (temp == '^') || (temp == '=')) &&
 			(((input.at(i - 1) == '+') || (input.at(i - 1) == '*') || (input.at(i - 1) == '-') || (input.at(i - 1) == '^') || (input.at(i - 1) == '=')) ||
 			  (input.at(i - 2) == '+') || (input.at(i - 2) == '*') || (input.at(i - 2) == '-') || (input.at(i - 2) == '^') || (input.at(i - 2) == '='))) {
 			valid = false;
