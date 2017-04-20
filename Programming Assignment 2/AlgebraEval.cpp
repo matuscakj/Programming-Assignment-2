@@ -36,6 +36,11 @@ void AlgebraEval(string input) {
 			(temp != '(') && (temp != ')')) {
 			valid = false;
 		}
+		if (((temp == '+') || (temp == '*') || (temp == '-') || (temp == '^') || (temp == '=')) &&
+			(((input.at(i - 1) == '+') || (input.at(i - 1) == '*') || (input.at(i - 1) == '-') || (input.at(i - 1) == '^') || (input.at(i - 1) == '=')) ||
+			  (input.at(i - 2) == '+') || (input.at(i - 2) == '*') || (input.at(i - 2) == '-') || (input.at(i - 2) == '^') || (input.at(i - 2) == '='))) {
+			valid = false;
+		}
 		if (temp == '=') {
 			equal = true;
 		}

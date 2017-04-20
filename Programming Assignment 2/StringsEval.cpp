@@ -37,6 +37,11 @@ void StringsEval(string input) {
 			if (temp == '=') {
 				equal = true;
 			}
+			if (((temp == '+') || (temp == '*') || (temp == '-') || (temp == '^') || (temp == '=')) &&
+				(((input.at(i - 1) == '+') || (input.at(i - 1) == '*') || (input.at(i - 1) == '-') || (input.at(i - 1) == '^') || (input.at(i - 1) == '=')) ||
+				  (input.at(i - 2) == '+') || (input.at(i - 2) == '*') || (input.at(i - 2) == '-') || (input.at(i - 2) == '^') || (input.at(i - 2) == '='))) {
+				valid = false;
+			}
 			if (temp == '('){
 				leftPar++;
 			}
